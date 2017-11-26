@@ -9,31 +9,19 @@
 
     public class FirstDayOfMonthTests
     {
-        public static IEnumerable<object[]> DateTimeList
+        public static IEnumerable<object[]> DateTimeList => new[]
         {
-            get
-            {
-                return new[]
-                {
-                    new object[] { new DateTime(2017, 11, 1) },
-                    new object[] { new DateTime(2017, 11, 15) },
-                    new object[] { new DateTime(2017, 11, 30) },
-                };
-            }
-        }
+            new object[] { new DateTime(2017, 11, 1) },
+            new object[] { new DateTime(2017, 11, 15) },
+            new object[] { new DateTime(2017, 11, 30) },
+        };
 
-        public static IEnumerable<object[]> DateTimeWithDaysOfWeekList
+        public static IEnumerable<object[]> DateTimeListWithDaysOfWeek => new[]
         {
-            get
-            {
-                return new[]
-                {
-                    new object[] { new DateTime(2017, 11, 1), DayOfWeek.Monday, new DateTime(2017, 11, 6) },
-                    new object[] { new DateTime(2017, 11, 15), DayOfWeek.Friday, new DateTime(2017, 11, 3) },
-                    new object[] { new DateTime(2017, 11, 30), DayOfWeek.Saturday, new DateTime(2017, 11, 4) },
-                };
-            }
-        }
+            new object[] { new DateTime(2017, 11, 1), DayOfWeek.Monday, new DateTime(2017, 11, 6) },
+            new object[] { new DateTime(2017, 11, 15), DayOfWeek.Friday, new DateTime(2017, 11, 3) },
+            new object[] { new DateTime(2017, 11, 30), DayOfWeek.Saturday, new DateTime(2017, 11, 4) },
+        };
 
         [Theory]
         [MemberData(nameof(DateTimeList))]
@@ -47,7 +35,7 @@
         }
 
         [Theory]
-        [MemberData(nameof(DateTimeWithDaysOfWeekList))]
+        [MemberData(nameof(DateTimeListWithDaysOfWeek))]
         public void FirstDayOfMonthWithSpecifiedDayOfWeek_ShouldReturn_CorrectValue(DateTime currentDate, DayOfWeek dayOfWeek, DateTime firstDayOfMonthExpected)
         {
             SystemTime.SetDateTime(currentDate);

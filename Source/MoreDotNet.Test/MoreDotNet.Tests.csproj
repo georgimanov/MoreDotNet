@@ -125,6 +125,7 @@
     <Compile Include="Extensions\Common\ConvertibleExtensions\ToOrOtherTests.cs" />
     <Compile Include="Extensions\Common\DataExtensions\GetNullableTests.cs" />
     <Compile Include="Extensions\Common\DateTimeExtensions\FirstDayOfMonthTests.cs" />
+    <Compile Include="Extensions\Common\DateTimeExtensions\LastDayOfMonthTests.cs" />
     <Compile Include="Extensions\Common\DateTimeExtensions\SystemTime.cs" />
     <Compile Include="Extensions\Common\GenericExtensions\GetMemberNameTests.cs" />
     <Compile Include="Extensions\Common\GenericExtensions\IsBetweenTests.cs" />
