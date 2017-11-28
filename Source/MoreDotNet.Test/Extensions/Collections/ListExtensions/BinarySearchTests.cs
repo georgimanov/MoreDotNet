@@ -18,7 +18,7 @@
         [Fact]
         public void BinarySearch_NullKeySelectorShould_ThrowArgumentNullException()
         {
-            IList<string> testList = new List<string>(); ;
+            IList<string> testList = new List<string>();
             Assert.Throws<ArgumentNullException>(
                 () => testList.BinarySearch(null, string.Empty));
         }
