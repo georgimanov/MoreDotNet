@@ -59,7 +59,13 @@
         {
             DateTime last = date.LastDayOfMonth();
 
-            last = last.AddDays(Math.Abs(dayOfWeek - last.DayOfWeek) * -1);
+            // TODO: previous implementation?
+            // last = last.AddDays(Math.Abs(dayOfWeek - last.DayOfWeek) * -1);
+            while (last.DayOfWeek != dayOfWeek)
+            {
+                last = last.AddDays(-1);
+            }
+
             return last;
         }
 
