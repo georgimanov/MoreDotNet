@@ -57,16 +57,10 @@
         /// <returns>A <see cref="DateTime"/> representing the last day of type <paramref name="dayOfWeek"/> of the current month.</returns>
         public static DateTime LastDayOfMonth(this DateTime date, DayOfWeek dayOfWeek)
         {
-            DateTime last = date.LastDayOfMonth();
+            var lastDayOfMonth = date.LastDayOfMonth();
+            var theWeekBefore = lastDayOfMonth.AddDays(-7);
 
-            // TODO: previous implementation?
-            // last = last.AddDays(Math.Abs(dayOfWeek - last.DayOfWeek) * -1);
-            while (last.DayOfWeek != dayOfWeek)
-            {
-                last = last.AddDays(-1);
-            }
-
-            return last;
+            return theWeekBefore.NextDate(dayOfWeek);
         }
 
         /// <summary>
