@@ -20,7 +20,6 @@
         [MemberData(nameof(DateTimeListWithDaysOfWeek))]
         public void NextDay_ShouldReturn_CorrectValue(DateTime currentDate, DayOfWeek dayOfWeek, DateTime expecteDateTime)
         {
-            SystemTime.SetDateTime(currentDate);
             var dayOfMonthActual = currentDate.NextDate(dayOfWeek);
             Assert.Equal(expecteDateTime, dayOfMonthActual);
         }

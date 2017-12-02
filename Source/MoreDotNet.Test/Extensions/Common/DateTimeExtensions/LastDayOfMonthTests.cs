@@ -28,7 +28,6 @@
         [MemberData(nameof(DateTimeList))]
         public void LastDayOfMonth_ShouldReturn_CorrectValue(DateTime currentDate)
         {
-            SystemTime.SetDateTime(currentDate);
             var lastDayOfMonth = new DateTime(2017, 11, 30);
 
             var lastDayOfMonthActual = currentDate.LastDayOfMonth();
@@ -39,7 +38,6 @@
         [MemberData(nameof(DateTimeListWithDaysOfWeek))]
         public void LastDayOfMonthWithSpecifiedDayOfWeek_ShouldReturn_CorrectValue(DateTime currentDate, DayOfWeek dayOfWeek, DateTime lastDayOfMonthExpected)
         {
-            SystemTime.SetDateTime(currentDate);
             var lastDayOfMonthActual = currentDate.LastDayOfMonth(dayOfWeek);
             Assert.Equal(lastDayOfMonthExpected, lastDayOfMonthActual);
         }

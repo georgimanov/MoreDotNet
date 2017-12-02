@@ -27,7 +27,6 @@
         [MemberData(nameof(DateTimeList))]
         public void FirstDayOfMonth_ShouldReturn_CorrectValue(DateTime currentDate)
         {
-            SystemTime.SetDateTime(currentDate);
             var firstDayOfMonthExpected = new DateTime(2017, 11, 1);
 
             var firstDayOfMonthActual = currentDate.FirstDayOfMonth();
@@ -38,7 +37,6 @@
         [MemberData(nameof(DateTimeListWithDaysOfWeek))]
         public void FirstDayOfMonthWithSpecifiedDayOfWeek_ShouldReturn_CorrectValue(DateTime currentDate, DayOfWeek dayOfWeek, DateTime firstDayOfMonthExpected)
         {
-            SystemTime.SetDateTime(currentDate);
             var firstDayOfMonthActual = currentDate.FirstDayOfMonth(dayOfWeek);
             Assert.Equal(firstDayOfMonthExpected, firstDayOfMonthActual);
         }
