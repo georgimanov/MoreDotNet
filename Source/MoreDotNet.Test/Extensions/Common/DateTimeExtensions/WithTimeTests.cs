@@ -33,14 +33,14 @@
                 Assert.Equal(currentDate.Second, 0);
                 Assert.Equal(currentDate.Millisecond, 0);
 
-                var resultMidnightDate = currentDate.WithTime(randomHours, randomMinutes, randomSeconds, randomMilliSeconds);
-                Assert.Equal(year, resultMidnightDate.Year);
-                Assert.Equal(month, resultMidnightDate.Month);
-                Assert.Equal(day, resultMidnightDate.Day);
-                Assert.Equal(randomHours, resultMidnightDate.Hour);
-                Assert.Equal(randomMinutes, resultMidnightDate.Minute);
-                Assert.Equal(randomSeconds, resultMidnightDate.Second);
-                Assert.Equal(randomMilliSeconds, resultMidnightDate.Millisecond);
+                var resultDate = currentDate.WithTime(randomHours, randomMinutes, randomSeconds, randomMilliSeconds);
+                Assert.Equal(year, resultDate.Year);
+                Assert.Equal(month, resultDate.Month);
+                Assert.Equal(day, resultDate.Day);
+                Assert.Equal(randomHours, resultDate.Hour);
+                Assert.Equal(randomMinutes, resultDate.Minute);
+                Assert.Equal(randomSeconds, resultDate.Second);
+                Assert.Equal(randomMilliSeconds, resultDate.Millisecond);
             }
         }
     }
