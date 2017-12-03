@@ -128,6 +128,7 @@
     <Compile Include="Extensions\Common\DateTimeExtensions\LastDayOfMonthTests.cs" />
     <Compile Include="Extensions\Common\DateTimeExtensions\MidnightTests.cs" />
     <Compile Include="Extensions\Common\DateTimeExtensions\NextDateTests.cs" />
+    <Compile Include="Extensions\Common\DateTimeExtensions\NoonTests.cs" />
     <Compile Include="Extensions\Common\DateTimeExtensions\SystemTime.cs" />
     <Compile Include="Extensions\Common\GenericExtensions\GetMemberNameTests.cs" />
     <Compile Include="Extensions\Common\GenericExtensions\IsBetweenTests.cs" />

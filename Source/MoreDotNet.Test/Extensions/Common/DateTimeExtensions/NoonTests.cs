@@ -6,10 +6,10 @@
 
     using Xunit;
 
-    public class MidnightTests
+    public class NoonTests
     {
         [Fact]
-        public void Midnight_ShouldReturn_CorrectValue()
+        public void Noon_ShouldReturn_CorrectValue()
         {
             const int iterations = 100;
 
@@ -26,12 +26,12 @@
                 myLocalDateTime = myLocalDateTime.AddMinutes(randomMinutes);
                 myLocalDateTime = myLocalDateTime.AddSeconds(randomSeconds);
 
-                var resultMidnightDate = myLocalDateTime.Midnight();
+                var resultMidnightDate = myLocalDateTime.Noon();
 
                 Assert.Equal(currentDate.Year, resultMidnightDate.Year);
                 Assert.Equal(currentDate.Month, resultMidnightDate.Month);
                 Assert.Equal(currentDate.Day, resultMidnightDate.Day);
-                Assert.Equal(currentDate.Hour, resultMidnightDate.Hour);
+                Assert.Equal(12, resultMidnightDate.Hour);
                 Assert.Equal(currentDate.Minute, resultMidnightDate.Minute);
                 Assert.Equal(currentDate.Second, resultMidnightDate.Second);
             }
