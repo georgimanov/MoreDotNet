@@ -130,6 +130,7 @@
     <Compile Include="Extensions\Common\DateTimeExtensions\NextDateTests.cs" />
     <Compile Include="Extensions\Common\DateTimeExtensions\NoonTests.cs" />
     <Compile Include="Extensions\Common\DateTimeExtensions\SystemTime.cs" />
+    <Compile Include="Extensions\Common\DateTimeExtensions\WithTimeTests.cs" />
     <Compile Include="Extensions\Common\GenericExtensions\GetMemberNameTests.cs" />
     <Compile Include="Extensions\Common\GenericExtensions\IsBetweenTests.cs" />
     <Compile Include="Extensions\Common\EnumExtensions\GetDescriptionTests.cs" />
