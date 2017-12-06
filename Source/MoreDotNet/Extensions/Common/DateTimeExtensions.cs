@@ -120,12 +120,23 @@
         }
 
         /// <summary>
-        /// Check if the <see cref="DateTime"/> instance represents a future date in comparison to <paramref name="from"/>.
+        /// Check if the <see cref="DateTime"/> instance represents a future time in comparison to <paramref name="from"/>.
         /// </summary>
         /// <param name="date">The <see cref="DateTime"/> instance on which the extension method is called.</param>
         /// <param name="from">A reference point, form witch we check if the current date is in the future.</param>
         /// <returns>True if the date is in the future. False otherwise.</returns>
         public static bool IsFuture(this DateTime date, DateTime from)
+        {
+            return date.Ticks > from.Ticks;
+        }
+
+        /// <summary>
+        /// Check if the <see cref="DateTime"/> instance represents a future date in comparison to <paramref name="from"/>.
+        /// </summary>
+        /// <param name="date">The <see cref="DateTime"/> instance on which the extension method is called.</param>
+        /// <param name="from">A reference point, form witch we check if the current date is in the future.</param>
+        /// <returns>True if the date is in the future. False otherwise.</returns>
+        public static bool IsFutureDate(this DateTime date, DateTime from)
         {
             return date.Date > from.Date;
         }

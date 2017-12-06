@@ -1,6 +1,4 @@
-﻿using Xunit.Sdk;
-
-namespace MoreDotNet.Tests.Extensions.Common.DateTimeExtensions
+﻿namespace MoreDotNet.Tests.Extensions.Common.DateTimeExtensions
 {
     using System;
     using MoreDotNet.Extensions.Common;
@@ -24,11 +22,21 @@ namespace MoreDotNet.Tests.Extensions.Common.DateTimeExtensions
             Assert.True(checkDateTime.IsFuture());
         }
 
-        [Fact(Skip = "Needs further investigation")]
-        public void IsFuture_ShouldReturn_True_ForDateTimeNowPlusOneHour_Local()
+        [Fact]
+        public void IsFuture_ShouldReturn_False_ForDateTimeNowPlusOneHour_Unspecified()
         {
             var now = DateTime.Now;
-            var checkDateTime = new DateTime(now.Year, now.Month, now.Day, now.Hour + 1, now.Minute, now.Second, DateTimeKind.Local);
+            var checkDateTime = new DateTime(now.Year, now.Month, now.Day, now.Hour, now.Minute, now.Second + 1);
+
+            Assert.NotEqual(now.Kind, checkDateTime.Kind);
+            Assert.True(checkDateTime.IsFuture());
+        }
+
+        [Fact]
+        public void IsFuture_ShouldReturn_False_ForDateTimeNowPlusOneHour_Local()
+        {
+            var now = DateTime.Now;
+            var checkDateTime = new DateTime(now.Year, now.Month, now.Day, now.Hour, now.Minute, now.Second + 1, DateTimeKind.Local);
 
             Assert.Equal(now.Kind, checkDateTime.Kind);
             Assert.True(checkDateTime.IsFuture());
@@ -38,26 +46,28 @@ namespace MoreDotNet.Tests.Extensions.Common.DateTimeExtensions
         public void IsFuture_ShouldReturn_False_ForDateTimeNowPlusOneHour_Utc()
         {
             var now = DateTime.Now;
-            var checkDateTime = new DateTime(now.Year, now.Month, now.Day, now.Hour + 1, now.Minute, now.Second, DateTimeKind.Utc);
+            var checkDateTime = new DateTime(now.Year, now.Month, now.Day, now.Hour, now.Minute, now.Second + 1, DateTimeKind.Utc);
 
             Assert.NotEqual(now.Kind, checkDateTime.Kind);
-            Assert.False(checkDateTime.IsFuture());
+            Assert.True(checkDateTime.IsFuture());
         }
 
         [Fact]
-        public void IsFuture_ShouldReturn_False_ForDateTimeNowPlusOneHour_Unspecified()
+        public void IsFuture_ShouldReturn_False_ForDateTimeMinValue()
         {
-            var now = DateTime.Now;
-            var checkDateTime = new DateTime(now.Year, now.Month, now.Day, now.Hour + 1, now.Minute, now.Second, DateTimeKind.Unspecified);
-
-            Assert.NotEqual(now.Kind, checkDateTime.Kind);
-            Assert.False(checkDateTime.IsFuture());
+            Assert.False(DateTime.MinValue.IsFuture());
         }
 
         [Fact]
         public void IsFuture_ShouldReturn_Fasle_ForDateTimeNow()
         {
             Assert.False(DateTime.Now.IsFuture());
+        }
+
+        [Fact]
+        public void IsFuture_ShouldReturn_True_ForDateTimeMaxValue()
+        {
+            Assert.True(DateTime.MaxValue.IsFuture());
         }
     }
 }
